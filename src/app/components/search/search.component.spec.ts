@@ -26,4 +26,18 @@ describe('SearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render search label', () => {
+    const fixture = TestBed.createComponent(SearchComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.search-label').textContent).toContain('Search a movie: ');
+  });
+
+  it('should render search button', () => {
+    const fixture = TestBed.createComponent(SearchComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.search-button').textContent).toContain('Search');
+  });
 });
