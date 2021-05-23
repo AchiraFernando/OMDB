@@ -1,3 +1,6 @@
-<div class="banner-container">
-    <p>{{ bannerText }}</p>
+<div *ngIf="showStartupBanner()" class="startup-banner-container">
+    <p class="startup-text">{{ startupBannerText }}</p>
+</div>
+<div *ngIf="lastThrownError()" class="error-banner-container">
+    <p class="error-text">{{ lastThrownError() }}</p>
 </div>

@@ -16,6 +16,9 @@ export class LoadService {
 
     constructor(private httpClient: HttpClient, private cacheService: CacheService) { }
 
+    // we use the below property to update our banner.
+    public lastThrownError: string = '';
+
     public searchMovie(searchTerm: string): void {
         let httpParams = new HttpParams();
         httpParams = httpParams.append('s', searchTerm);
@@ -44,10 +47,18 @@ export class LoadService {
                 this.cacheService.loadMovieData(movieResponse, isPageLoad);
                 if (!movieResponse) {
                     console.warn('invalid response');
+                    this.lastThrownError = 'invalid response data';
+                    return;
                 }
+                if (movieResponse.Response === 'False') {
+                    this.lastThrownError = movieResponse.Error;
+                    return;
+                }
+                this.lastThrownError = '';
             },
-            (err: any) => {
+            (err) => {
                 console.error('fetch movie data error, ', err);
+                this.lastThrownError = err.Error;
             },
         );
     }
@@ -59,10 +70,18 @@ export class LoadService {
                 this.cacheService.loadMovieDetail(movieResponse);
                 if (!movieResponse) {
                     console.warn('invalid response');
+                    this.lastThrownError = 'invalid response data';
+                    return;
                 }
+                if (movieResponse.Response === 'False') {
+                    this.lastThrownError = movieResponse.Error;
+                    return;
+                }
+                this.lastThrownError = '';
             },
-            (err: any) => {
+            (err) => {
                 console.error('fetch movie details error, ', err);
+                this.lastThrownError = err.Error;
             },
         );
     }

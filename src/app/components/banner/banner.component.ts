@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CacheService } from 'src/app/services/cache.service';
+import { LoadService } from 'src/app/services/load.service';
 
 @Component({
     selector: 'app-banner',
@@ -7,12 +9,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-    @Input()
-    bannerText: string = '';
+    public startupBannerText: string = 'Welcome to OMDB Search, search something in the bar above!';
 
-    constructor() { }
+    constructor(private cacheService: CacheService, private loadService: LoadService) { }
 
     ngOnInit(): void {
+    }
+
+    public lastThrownError(): string {
+        return this.loadService.lastThrownError;
+    }
+
+    public showStartupBanner(): boolean {
+        if (!this.cacheService.searchTerm && !this.lastThrownError()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

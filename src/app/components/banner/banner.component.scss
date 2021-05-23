@@ -1,4 +1,4 @@
-.banner-container {
+.error-banner-container {
 	text-align: center;
 	border: 2.5px dotted rgb(255, 34, 34);
     color: red;
@@ -6,15 +6,36 @@
     margin-top: 50px;
 }
 
-p {
+.startup-banner-container {
+	text-align: center;
+	border: 2.5px dotted #ccc;
+    color: rgb(37, 37, 37);
+    background-color: rgba(204, 204, 204, 0.692);
+    margin-top: 50px;
+}
+
+.error-text {
     margin-left: 25rem;
     margin-right: 25rem;
     font-size: 15px;
 }
 
+.startup-text {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    font-size: 15px;
+}
+
+
 @media screen and (max-width: 575px) {
-    p {
+    .error-text {
         margin-left: 7rem;
         margin-right: 7rem;
+    }
+
+    .startup-text {
+        margin-left: 3rem;
+        margin-right: 3rem;
+        font-size: 13px;
     }
 }

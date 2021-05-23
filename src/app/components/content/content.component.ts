@@ -21,8 +21,6 @@ export class ContentComponent implements OnInit {
         return false;
     }
 
-    public bannerText = 'Movie not found!';
-
     private openedCardIndex: number = -1;
     private openedCardId: string = '';
 
@@ -108,14 +106,6 @@ export class ContentComponent implements OnInit {
         if (!movieDetail) {
             // if not do a new load for the full movie detail for the id
             this.loadService.searchMovieFull(movieId)
-        }
-    }
-
-    public showBanner(): boolean {
-        if (!this.cacheService.searchTerm) {
-            return true;
-        } else {
-            return false;
         }
     }
 

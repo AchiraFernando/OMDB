@@ -1,7 +1,8 @@
 import { MovieInfo } from "./MovieInfo";
 
 export interface MovieDataResponse {
-    Response: boolean;
+    Response: string;
     Search: MovieInfo[];
     totalResults: number;
+    Error: string;
 }
