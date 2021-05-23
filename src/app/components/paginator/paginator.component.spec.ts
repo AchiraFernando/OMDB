@@ -1,4 +1,7 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CacheService } from 'src/app/services/cache.service';
+import { LoadService } from 'src/app/services/load.service';
 
 import { PaginatorComponent } from './paginator.component';
 
@@ -8,7 +11,8 @@ describe('PaginatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaginatorComponent ]
+      declarations: [PaginatorComponent],
+      providers: [CacheService, LoadService, HttpClient, HttpHandler]
     })
     .compileComponents();
   });
