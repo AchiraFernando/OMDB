@@ -10,6 +10,7 @@ import { LoadService } from 'src/app/services/load.service';
 })
 export class ContentComponent implements OnInit {
 
+    // we use below code snippet the check the device screen size.
     private scrWidth: number = window.innerWidth;
     @HostListener('window:resize', ['$event'])
     getScreenSize() {
@@ -33,6 +34,7 @@ export class ContentComponent implements OnInit {
     ngOnInit(): void {
         this.movieInfo = this.cacheService.getMovieData();
 
+        // we need to subscribe to the below event to fetch data if newly loaded to the cache.
         this.cacheService.movieDataChanged.subscribe(() => {
             this.movieInfo = this.cacheService.getMovieData();
         });
@@ -43,7 +45,7 @@ export class ContentComponent implements OnInit {
         return false;
     }
 
-    public detailsToggle(movieInfo: MovieInfo, index: number, detailsToggled: boolean) {
+    public detailsToggle(movieInfo: MovieInfo, index: number, detailsToggled: boolean): void {
         if (this.isMobileScreenSize) {
             if (detailsToggled) {
                 this.fetchMovieDetail(movieInfo.imdbID);
@@ -70,7 +72,7 @@ export class ContentComponent implements OnInit {
 
     // the styling below works dynamically for the css grid.
     // here we use grid-column value to expand and shrink the card.
-    public getCardStyle(cardIndex: number) {
+    public getCardStyle(cardIndex: number): { 'grid-column': string; } {
         if (cardIndex === this.openedCardIndex) {
             if (cardIndex !== 0 && cardIndex % 2 !== 0) {
                 return { 'grid-column': `3 / 1` };
@@ -82,7 +84,8 @@ export class ContentComponent implements OnInit {
         }
     }
 
-    public populateItems() {
+    // here we restructure the indexes of the list of movies based on what is opened/viewed.
+    public populateItems(): MovieInfo[] {
         if (this.openedCardIndex === -1) return this.movieInfo;
         if (this.openedCardIndex === 0 || this.openedCardIndex % 2 === 0) return this.movieInfo;
         let beforeIndex = this.openedCardIndex - 1;
@@ -92,14 +95,14 @@ export class ContentComponent implements OnInit {
         return this.movieInfo;
     }
 
-    private resetExpandedItems() {
+    private resetExpandedItems(): void {
         // if no card is opened, we don't want to perform reset.
         if (this.openedCardIndex === -1) return;
         [this.movieInfo[this.openedCardIndex], this.movieInfo[this.openedCardIndex + 1]] = [this.movieInfo[this.openedCardIndex + 1], this.movieInfo[this.openedCardIndex]]
         this.openedCardIndex = -1;
     }
 
-    private fetchMovieDetail(movieId: string) {
+    private fetchMovieDetail(movieId: string): void {
         // look whether the movie detail is already loaded and cached.
         let movieDetail = this.cacheService.getMovieDetailForId(movieId);
         if (!movieDetail) {

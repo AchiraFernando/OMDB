@@ -4,6 +4,8 @@ import { MovieDetailResponse } from '../models/MovieDetailResponse';
 import { MovieDataResponse } from '../models/MovieResponse';
 import { CacheService } from './cache.service';
 
+// These should be maintained in a secured location, putting this here just as
+// this is a test project.
 const OMDB_API_KEY = '4897472c';
 const BASE_URL = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}`;
 

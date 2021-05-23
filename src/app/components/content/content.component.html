@@ -1,13 +1,16 @@
 <div class="content-container">
     <div class="banner-container">
+        <!-- show banner if no data is loaded -->
         <app-banner *ngIf="showBanner()" [bannerText]="bannerText"></app-banner>
     </div>
     <div class="grid-container">
         <div *ngFor="let movieInfo of populateItems(); let i = index" [ngStyle]="getCardStyle(i)">
+            <!-- we use a card component to represent each movie in the list of movies. -->
             <app-card [movieInfo]="movieInfo" (detailsClickEvent)="detailsToggle(movieInfo, i, $event)" [detailOpened]="isCardOpened(movieInfo.imdbID)"></app-card>
         </div>
     </div>
     <div class="paginator">
+        <!-- here we render the pagination -->
         <app-paginator></app-paginator>
     </div>
 </div>

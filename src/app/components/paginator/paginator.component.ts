@@ -9,21 +9,17 @@ import { LoadService } from 'src/app/services/load.service';
 })
 export class PaginatorComponent implements OnInit {
 
-    private readonly PAGES_PER_PAGE = 10;
+    constructor(private cacheService: CacheService, private loadService: LoadService) { }
 
-    public totalPages = this.totalMovies / this.PAGES_PER_PAGE;
+    ngOnInit(): void {
+    }
 
     public get totalMovies(): number {
         return this.cacheService.totalMovies;
     };
 
-    public getCurrentPage() {
+    public getCurrentPage(): number {
         return this.cacheService.pageNumber;
-    }
-
-    constructor(private cacheService: CacheService, private loadService: LoadService) { }
-
-    ngOnInit(): void {
     }
 
     public get elpsisVisible(): boolean {
@@ -53,7 +49,7 @@ export class PaginatorComponent implements OnInit {
         return pageArray;
     }
 
-    public pageClick(page: number) {
+    public pageClick(page: number): void {
         this.cacheService.pageNumber = page;
         if (!this.cacheService.isPageLoaded(page)) {
             this.loadService.loadPage(page);

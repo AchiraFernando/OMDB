@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public searchClick() {
+    public searchClick(): void {
         this.cacheService.searchTerm = this.searchTerm;
         this.loadService.searchMovie(this.searchTerm);
     }

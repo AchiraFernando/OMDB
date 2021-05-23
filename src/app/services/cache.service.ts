@@ -10,8 +10,9 @@ import { MovieDataResponse } from '../models/MovieResponse';
 })
 export class CacheService {
 
-    private movieData: MovieInfo[] = [];
+    // here we store a list of movie infos per page.
     public pageBaseMovieData: { [pageNumber: number]: MovieInfo[] } = {};
+    // here we store the currently vieweing movie's detail.
     public movieDetailData: { [movieId: string]: MovieDetail } = {};
 
     public searchTerm: string = '';
@@ -32,22 +33,22 @@ export class CacheService {
         return this.pageBaseMovieData[this.pageNumber];
     }
 
-    public loadMovieData(movieDataResponse: MovieDataResponse, isPageLoad: boolean) {
-        this.movieData = movieDataResponse.Search;
+    public loadMovieData(movieDataResponse: MovieDataResponse, isPageLoad: boolean): void {
+        let movieData: MovieInfo[] = movieDataResponse.Search;
         this.totalMovies = movieDataResponse.totalResults;
 
         if (isPageLoad) {
-            this.pageBaseMovieData[this.pageNumber] = this.movieData;
+            this.pageBaseMovieData[this.pageNumber] = movieData;
         } else {
             this.pageBaseMovieData = {};
             this.pageNumber = 1;
-            this.pageBaseMovieData[this.pageNumber] = this.movieData;
+            this.pageBaseMovieData[this.pageNumber] = movieData;
         }
 
         this._movieDataChanged.next();
     }
 
-    public loadMovieDetail(movieDetailResponse: MovieDetailResponse) {
+    public loadMovieDetail(movieDetailResponse: MovieDetailResponse): void {
         let movieDetail: MovieDetail = {} as MovieDetail;
         movieDetail.imdbID = movieDetailResponse.imdbID;
         movieDetail.title = movieDetailResponse.Title;
