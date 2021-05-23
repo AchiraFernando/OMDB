@@ -1,0 +1,29 @@
+.pagination-container {
+    display: flex;
+}
+
+img {
+    width: 15px;
+    height: 15px;
+    padding-right: 7px;
+    padding-top: 3px;
+}
+
+img:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+u {
+    color: rgb(59, 59, 255);
+    text-decoration: none;
+}
+
+u:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.page-selected {
+    color: black;
+}

@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+// * {
+//     margin: 0;
+// }
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.button {
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+    border-color: transparent;
+
+    &--primary {
+        background-color:  #bee7ff;
+		color:  #006f9e;
+
+		&:hover {
+			background-color: #94d8ff;
+		    color: #043e6d;
+            border-color:  transparent;
+        }
+
+        &:active, &.active {
+		    background-color: #bfe1f0;
+		    color: #006f9e;
+            border-color: transparent;
+        }
+    }
+
+    &--secondary {
+        background-color:  #ffe7e7;
+        color:  #d82a2a;
+
+        &:hover {
+            background-color: #fdd5d5;
+            color: #e01c1c;
+            border-color:  transparent;
+        }
+    }
+}

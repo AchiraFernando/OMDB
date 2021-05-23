@@ -4,12 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CardComponent } from './components/card/card.component';
-import { DetailComponent } from './components/detail/detail.component';
 import { SearchComponent } from './components/search/search.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CacheService } from './services/cache.service';
 import { LoadService } from './services/load.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ContentComponent } from './components/content/content.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +22,13 @@ import { LoadService } from './services/load.service';
     MainPageComponent,
     BannerComponent,
     CardComponent,
-    DetailComponent
+    ContentComponent,
+    PaginatorComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [LoadService, CacheService],
   bootstrap: [AppComponent]

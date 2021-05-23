@@ -1,0 +1,17 @@
+.search-label {
+    font-size: 12px;
+}
+
+.search-button {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 575px) {
+    .search-label {
+        display: none;
+    }
+
+    input {
+        width: 8rem;
+    }
+}
