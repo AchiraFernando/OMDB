@@ -21,6 +21,13 @@
 @media screen and (max-width: 800px) {
     .grid-container {
         display: grid;
+        grid-template-columns: 400px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .grid-container {
+        display: grid;
         grid-template-columns: 350px;
     }
 }

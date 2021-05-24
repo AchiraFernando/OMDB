@@ -14,7 +14,10 @@ export class ContentComponent implements OnInit {
     private scrWidth: number = window.innerWidth;
     @HostListener('window:resize', ['$event'])
     getScreenSize() {
-          this.scrWidth = window.innerWidth;
+        // reset items and close the opened column when screensize changes.
+        this.openedCardId = '';
+        this.resetExpandedItems();
+        this.scrWidth = window.innerWidth;
     }
     public get isMobileScreenSize(): boolean {
         if (this.scrWidth < 800) return true;
