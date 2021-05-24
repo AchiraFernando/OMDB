@@ -63,7 +63,7 @@ export class ContentComponent implements OnInit {
                 this.openedCardIndex = index;
             } else {
                 this.openedCardId = '';
-                if (this.openedCardIndex !== -1) {
+                if (this.openedCardIndex !== -1 && this.openedCardIndex % 2 !== 0) {
                     [this.movieInfo[index], this.movieInfo[index + 1]] = [this.movieInfo[index + 1], this.movieInfo[index]]
                 }
                 this.openedCardIndex = -1;
