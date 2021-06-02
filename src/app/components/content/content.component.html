@@ -6,7 +6,7 @@
     <div class="grid-container">
         <div *ngFor="let movieInfo of populateItems(); let i = index" [ngStyle]="getCardStyle(i)">
             <!-- we use a card component to represent each movie in the list of movies. -->
-            <app-card [movieInfo]="movieInfo" (detailsClickEvent)="detailsToggle(movieInfo, i, $event)" [detailOpened]="isCardOpened(movieInfo.imdbID)"></app-card>
+            <app-movie-detail [movieInfo]="movieInfo" (detailsClickEvent)="detailsToggle(movieInfo, i, $event)" [detailOpened]="isCardOpened(movieInfo.imdbID)"></app-movie-detail>
         </div>
     </div>
     <div class="paginator">

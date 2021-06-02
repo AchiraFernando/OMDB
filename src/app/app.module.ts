@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ContentComponent } from './components/content/content.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     CardComponent,
     ContentComponent,
     PaginatorComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,

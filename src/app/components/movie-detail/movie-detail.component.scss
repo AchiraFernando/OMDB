@@ -1,0 +1,94 @@
+@import '../../../styles.scss';
+
+.type {
+    align-self: flex-start;
+}
+
+.heading {
+    margin-top: 5px;
+}
+
+label {
+    font-size: 13px;
+    color: $app-label-color;
+}
+
+p {
+    margin-top: 0;
+    font-size: 12.5px;
+}
+
+.image img {
+    width: 200px;
+    height: 18.6rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 10px 10px 10px;
+    width: 15rem;
+    height: 17rem;
+
+    &--expand {
+        width: 44rem;
+    }
+}
+
+.content-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+  margin-top: -20px;
+}
+
+.hr-style {
+    background-color: $app-border-color;
+}
+
+@media screen and (max-width: 800px) {
+    .heading {
+        font-size: 12.5px;
+    }
+
+    .content-body {
+        overflow: auto !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    .content--expand--details {
+        width: 36rem;
+    }
+
+    .content-body {
+        overflow: hidden;
+    }
+
+    .content-body:hover {
+        overflow: auto;
+    }
+
+    // adding some styling to the scrollbar :)
+    #style-4::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px $app-scroll-shadow-color;
+        background-color: $app-background-color;
+    }
+
+    #style-4::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: $app-background-color;
+    }
+
+    #style-4::-webkit-scrollbar-thumb
+    {
+        background-color: $app-scroll-background-color;
+        border: 2px solid $app-scroll-border-color;
+    }
+}

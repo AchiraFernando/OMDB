@@ -1,0 +1,42 @@
+<app-card>
+    <div class="image">
+        <img src="{{movieInfo.Poster}}">
+    </div>
+
+    <div class="content" [ngClass]="{'content--expand': detailOpened}">
+        <div class="content-body" id="style-4">
+            <div class="type">
+                <h3 class="heading">{{movieInfo.Title}}</h3>
+                <label>Type</label>
+                <p>{{movieInfo?.Type}}</p>
+            </div>
+            <div *ngIf="movieDetail && detailOpened" class="content--expand--details">
+                <label>Plot</label>
+                <p>{{movieDetail?.plot}}</p>
+
+                <label>Actors</label>
+                <p>{{movieDetail?.actors}}</p>
+
+                <label>Ratings</label>
+                <ul *ngFor="let rating of movieDetail?.ratings">
+                    <li>
+                        <p>{{rating.Source}}: {{rating.Value}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <hr class="hr-style" />
+            <div class="content-footer">
+                <div>
+                    <label>{{movieInfo.Year}}</label>
+                </div>
+                <div>
+                    <button *ngIf="!detailOpened" (click)="expandDetails()" class="button button--primary">Details</button>
+                    <button *ngIf="detailOpened" (click)="shrinkDetails()" class="button button--secondary">Hide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
