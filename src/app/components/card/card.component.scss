@@ -4,6 +4,7 @@
     display: flex;
     border: 1px $app-border-color solid;
     box-shadow: 2px 2px 5px $card-shadow-color;
+    height: 18.7rem;
 }
 .type {
     align-self: flex-start;
@@ -25,6 +26,7 @@ p {
 
 .image img {
     width: 200px;
+    height: 18.6rem;
 }
 
 .content {
