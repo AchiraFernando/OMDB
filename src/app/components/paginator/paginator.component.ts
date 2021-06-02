@@ -29,6 +29,14 @@ export class PaginatorComponent implements OnInit {
         return true;
     }
 
+    public get paginationVisible(): boolean {
+        return this.totalMovies > 0;
+    }
+
+    public get backVisible(): boolean {
+        return this.getCurrentPage() >= 4;
+    }
+
     public pages(): number[] {
         let pageArray: number[] = [];
         if (this.getCurrentPage() < 4) {

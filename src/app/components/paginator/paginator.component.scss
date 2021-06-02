@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .pagination-container {
     display: flex;
 }
@@ -15,7 +17,7 @@ img:hover {
 }
 
 u {
-    color: rgb(59, 59, 255);
+    color: $app-link-color;
     text-decoration: none;
 }
 
@@ -25,5 +27,5 @@ u:hover {
 }
 
 .page-selected {
-    color: black;
+    color: $primary-font-color;
 }

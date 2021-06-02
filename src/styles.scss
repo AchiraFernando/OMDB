@@ -3,6 +3,27 @@
 //     margin: 0;
 // }
 
+// below are shared colors used throughout the application.
+$primary-font-color: black;
+$app-background-color: #ffff;
+$app-link-color: #3b3bff;
+$app-border-color: #ccc;
+$app-border-color-dark: grey;
+$app-label-color: #7e7d7d;
+$app-scroll-shadow-color: #0000004d;
+$app-scroll-background-color: #00000025;
+$app-scroll-border-color: #5555556c;
+
+$banner-error-color: red;
+$banner-error-background-color: #ffeaea;
+$banner-error-border-color: #ff2222;
+
+$banner-normal-color: #252525;
+$banner-normal-background-color: #ccccccb0;
+
+$card-shadow-color: #b6b6b6;
+
+
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

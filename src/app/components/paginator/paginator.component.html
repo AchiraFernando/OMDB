@@ -1,5 +1,5 @@
-<div class="pagination-container" *ngIf="totalMovies > 0">
-    <img *ngIf="getCurrentPage() >= 4" src="assets/double-left-arrows-symbol.png" (click)="pageClick(1)">
+<div class="pagination-container" *ngIf="paginationVisible">
+    <img *ngIf="backVisible" src="assets/double-left-arrows-symbol.png" (click)="pageClick(1)">
     <div *ngFor="let page of pages()">
         <u
             class="page-number"
