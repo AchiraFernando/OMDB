@@ -9,7 +9,6 @@ import { CacheService } from 'src/app/services/cache.service';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-
     @Input()
     movieInfo: MovieInfo = {} as MovieInfo;
 
