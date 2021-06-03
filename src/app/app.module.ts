@@ -10,7 +10,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CacheService } from './services/cache.service';
 import { LoadService } from './services/load.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentComponent } from './components/content/content.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
@@ -30,7 +30,8 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [LoadService, CacheService],
   bootstrap: [AppComponent]

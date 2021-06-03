@@ -20,6 +20,10 @@ export class LoadService {
     public lastThrownError: string = '';
 
     public searchMovie(searchTerm: string): void {
+        if (!searchTerm) {
+            this.cacheService.clearCache();
+            return;
+        }
         let httpParams = new HttpParams();
         httpParams = httpParams.append('s', searchTerm);
         httpParams = httpParams.append('page', 1);

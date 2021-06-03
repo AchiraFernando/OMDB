@@ -1,3 +1,5 @@
-<label class="search-label">Search a movie: </label>
-<input class="search-input" [(ngModel)]="searchTerm">
-<button class="search-button button button--primary"(click)="searchClick()">Search</button>
+<form (ngSubmit)="searchClick()">
+    <label class="search-label">Search a movie: </label>
+    <input class="search-input" [formControl]="searchTermControl">
+    <button class="search-button button button--primary">Search</button>
+</form>

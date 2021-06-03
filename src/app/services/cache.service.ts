@@ -75,4 +75,13 @@ export class CacheService {
     public triggerPageLoad(): void {
         this._movieDataChanged.next();
     }
+
+    public clearCache(): void {
+        this.movieDetailData = {};
+        this.totalMovies = 0;
+        this._movieDetailsChanged.next();
+
+        this.pageBaseMovieData = {}
+        this._movieDataChanged.next();
+    }
 }
