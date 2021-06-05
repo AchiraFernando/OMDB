@@ -21,11 +21,7 @@ export class BannerComponent implements OnInit {
     }
 
     public showStartupBanner(): boolean {
-        if (!this.cacheService.searchTerm && !this.lastThrownError()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !this.cacheService.searchTerm && !this.lastThrownError();
     }
 
 }

@@ -20,8 +20,6 @@ export class SearchComponent implements OnInit {
     public searchClick(): void {
         this.cacheService.searchTerm = this.searchTermControl.value;
         this.loadService.searchMovie(this.searchTermControl.value);
-        // clear the search after doing a search.
-        this.searchTermControl.reset();
     }
 
 }
