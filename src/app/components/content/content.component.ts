@@ -44,23 +44,23 @@ export class ContentComponent implements OnInit {
     public detailsToggle(info: MovieInfo): void {
         // reset data
         this.resetMovieData();
-        let movie = this.movieInfo.find((movie) => movie.ImdbID === info.ImdbID);
+        let movie = this.movieInfo.find((movie) => movie.imdbID === info.imdbID);
         if (movie) {
             // flag the movie as opened
-            movie.IsOpened = true;
+            movie.isOpened = true;
             // perform a swap only for neccesary items
-            let index: number = this.movieInfo.findIndex((movie) => movie.ImdbID === info.ImdbID);
+            let index: number = this.movieInfo.findIndex((movie) => movie.imdbID === info.imdbID);
             if (index !== 0 && index % 2 !== 0) {
                 // swap the indexes
                 [this.movieInfo[index], this.movieInfo[index - 1]] = [this.movieInfo[index - 1], this.movieInfo[index]]
             }
             // fetch the movie details
-            this.fetchMovieDetail(movie.ImdbID);
+            this.fetchMovieDetail(movie.imdbID);
         }
     }
 
     public getCardStyle(movieInfo: MovieInfo): { 'grid-column': string; } {
-        if (movieInfo.IsOpened) {
+        if (movieInfo.isOpened) {
             // using grid-column to expand a card on the css-grid
             return { 'grid-column': `1 / 3` };
         } else {

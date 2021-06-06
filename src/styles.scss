@@ -22,6 +22,7 @@ $banner-normal-color: #252525;
 $banner-normal-background-color: #ccccccb0;
 
 $card-shadow-color: #b6b6b6;
+$input-border-color: #e3e3e3;
 
 
 * {
@@ -33,36 +34,21 @@ body {
 }
 
 .button {
-    font-size: 13px;
+    padding: 2px 6px 2px 6px;
+    font-weight: bold;
+    font-family: system-ui;
+    font-size: 10px;
+
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 2px;
     border-color: transparent;
 
     &--primary {
-        background-color:  #bee7ff;
-		color:  #006f9e;
+        background-color:  #1e5fff;
+		color:  #ffffff;
 
 		&:hover {
-			background-color: #94d8ff;
-		    color: #043e6d;
-            border-color:  transparent;
-        }
-
-        &:active, &.active {
-		    background-color: #bfe1f0;
-		    color: #006f9e;
-            border-color: transparent;
-        }
-    }
-
-    &--secondary {
-        background-color:  #ffe7e7;
-        color:  #d82a2a;
-
-        &:hover {
-            background-color: #fdd5d5;
-            color: #e01c1c;
-            border-color:  transparent;
+			background-color: #0040e0;
         }
     }
 }

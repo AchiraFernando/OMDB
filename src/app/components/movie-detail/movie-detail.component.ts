@@ -23,10 +23,10 @@ export class MovieDetailComponent implements OnInit {
     ngOnInit(): void {
         // here we subscribe to fetch the movie details if loaded.
         this.cacheService.movieDetailsChanged.subscribe(() => {
-            this.movieDetail = this.cacheService.getMovieDetailForId(this.movieInfo.ImdbID);
+            this.movieDetail = this.cacheService.getMovieDetailForId(this.movieInfo.imdbID);
         });
 
-        this.movieDetail = this.cacheService.getMovieDetailForId(this.movieInfo.ImdbID);
+        this.movieDetail = this.cacheService.getMovieDetailForId(this.movieInfo.imdbID);
     }
 
     expandDetails() {
