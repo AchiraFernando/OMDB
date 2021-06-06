@@ -12,10 +12,10 @@
         <ng-container *ngIf="elpsisVisible">...</ng-container>
         <u
             class="page-number"
-            (click)="pageClick(totalMovies)"
-            [ngClass]="{ 'page-selected': totalMovies === getCurrentPage() }"
+            (click)="pageClick(totalPages)"
+            [ngClass]="{ 'page-selected': totalPages === getCurrentPage() }"
         >
-            {{ totalMovies }}
+            {{ totalPages }}
         </u>
     </div>
 </div>

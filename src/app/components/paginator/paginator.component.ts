@@ -14,8 +14,14 @@ export class PaginatorComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public get totalMovies(): number {
-        return this.cacheService.totalMovies;
+    public get totalPages(): number {
+        if (!this.cacheService.totalMovies) return 0;
+        let pages: number = Math.round(this.cacheService.totalMovies / 10);
+
+        if (this.cacheService.totalMovies % 10 === 0 || this.cacheService.totalMovies % 10 > 5) {
+            return pages;
+        }
+        return pages + 1;
     };
 
     public getCurrentPage(): number {
@@ -23,14 +29,14 @@ export class PaginatorComponent implements OnInit {
     }
 
     public get elpsisVisible(): boolean {
-        if (this.getCurrentPage() > this.totalMovies - 4) {
+        if (this.getCurrentPage() > this.totalPages - 4) {
             return false;
         }
         return true;
     }
 
     public get paginationVisible(): boolean {
-        return this.totalMovies > 0;
+        return this.totalPages > 0;
     }
 
     public get backVisible(): boolean {
@@ -41,16 +47,16 @@ export class PaginatorComponent implements OnInit {
         let pageArray: number[] = [];
         if (this.getCurrentPage() < 4) {
             let pageLimit = 5;
-            if (this.totalMovies < 4) pageLimit = this.totalMovies;
+            if (this.totalPages < 4) pageLimit = this.totalPages;
             for (let i = 1; i < pageLimit; i++) {
                 pageArray.push(i);
             }
         } else if (this.getCurrentPage() >= 4) {
-            for (let i = this.getCurrentPage() - 2; (i < this.getCurrentPage() + 2 && i < this.totalMovies); i++) {
+            for (let i = this.getCurrentPage() - 2; (i < this.getCurrentPage() + 2 && i < this.totalPages); i++) {
                 pageArray.push(i);
             }
         } else {
-            for (let i = this.getCurrentPage(); (i < this.getCurrentPage() + 4 && i < this.totalMovies); i++) {
+            for (let i = this.getCurrentPage(); (i < this.getCurrentPage() + 4 && i < this.totalPages); i++) {
                 pageArray.push(i);
             }
         }
