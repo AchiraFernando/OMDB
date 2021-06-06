@@ -45,7 +45,13 @@ export class ContentComponent implements OnInit {
         // reset data
         this.resetMovieData();
         let movie = this.movieInfo.find((movie) => movie.imdbID === info.imdbID);
-        if (movie) {
+        if (!movie) return;
+        if (this.isMobileScreenSize) {
+            // flag the movie as opened
+            movie.isOpened = true;
+            // fetch the movie details
+            this.fetchMovieDetail(movie.imdbID);
+        } else {
             // flag the movie as opened
             movie.isOpened = true;
             // perform a swap only for neccesary items
@@ -60,7 +66,7 @@ export class ContentComponent implements OnInit {
     }
 
     public getCardStyle(movieInfo: MovieInfo): { 'grid-column': string; } {
-        if (movieInfo.isOpened) {
+        if (movieInfo.isOpened && !this.isMobileScreenSize) {
             // using grid-column to expand a card on the css-grid
             return { 'grid-column': `1 / 3` };
         } else {
