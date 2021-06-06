@@ -58,7 +58,7 @@ export class ContentComponent implements OnInit {
             let index: number = this.movieInfo.findIndex((movie) => movie.imdbID === info.imdbID);
             if (index !== 0 && index % 2 !== 0) {
                 // swap the indexes
-                [this.movieInfo[index], this.movieInfo[index - 1]] = [this.movieInfo[index - 1], this.movieInfo[index]]
+                [this.movieInfo[index], this.movieInfo[index + 1]] = [this.movieInfo[index + 1], this.movieInfo[index]]
             }
             // fetch the movie details
             this.fetchMovieDetail(movie.imdbID);
