@@ -3,5 +3,6 @@ export interface MovieInfo {
     Title: string;
     Type: string;
     Year: string;
-    imdbID: string;
+    ImdbID: string;
+    IsOpened?: boolean;
 }

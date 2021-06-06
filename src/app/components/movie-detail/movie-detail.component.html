@@ -3,14 +3,14 @@
         <img src="{{movieInfo.Poster}}">
     </div>
 
-    <div class="content" [ngClass]="{'content--expand': detailOpened}">
+    <div class="content" [ngClass]="{'content--expand': movieInfo.IsOpened}">
         <div class="content-body" id="style-4">
             <div class="type">
                 <h3 class="heading">{{movieInfo.Title}}</h3>
                 <label>Type</label>
                 <p>{{movieInfo?.Type}}</p>
             </div>
-            <div *ngIf="movieDetail && detailOpened" class="content--expand--details">
+            <div *ngIf="movieDetail && movieInfo.IsOpened" class="content--expand--details">
                 <label>Plot</label>
                 <p>{{movieDetail?.plot}}</p>
 
@@ -33,8 +33,7 @@
                     <label>{{movieInfo.Year}}</label>
                 </div>
                 <div>
-                    <button *ngIf="!detailOpened" (click)="expandDetails()" class="button button--primary">Details</button>
-                    <button *ngIf="detailOpened" (click)="shrinkDetails()" class="button button--secondary">Hide</button>
+                    <button *ngIf="!movieInfo.IsOpened" (click)="expandDetails()" class="button button--primary">Details</button>
                 </div>
             </div>
         </div>
