@@ -29,7 +29,7 @@ export class MovieDetailComponent implements OnInit {
         this.movieDetail = this.cacheService.getMovieDetailForId(this.movieInfo.imdbID);
     }
 
-    expandDetails() {
+    public expandDetails(): void {
         this.detailsClickEvent.emit(true);
     }
 

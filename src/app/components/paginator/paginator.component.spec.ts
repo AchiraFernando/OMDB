@@ -51,7 +51,7 @@ describe('PaginatorComponent', () => {
   });
 
   it('should render the ellipsis', () => {
-    cacheService.pageNumber = 8;
+    cacheService.pageNumber = 2;
     cacheService.totalMovies = 100;
 
     const fixture = TestBed.createComponent(PaginatorComponent);
